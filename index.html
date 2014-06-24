@@ -3,9 +3,20 @@
 	<head lang="en">
 		<meta charset="utf-8">
 		<title>Search Element in Angular Table</title>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.min.js"></script>
 	</head>
-	<body>
+	<body ng-controller="CountryCtrl">
+		Search: <input ng-model="query" type="text" />
+		<table>
+			<tr>
+				<th>Country</th>
+				<th>Population</th>
+			</tr>
+			<tr ng-repeat="country in countries | filter:query">
+				<td>{{country.name}}</td>
+				<td>{{country.population}}</td>
+			</tr>
+		</table>
 	</body>
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.10/angular.min.js"></script>
 	<script type="text/javascript" src="app.js"></script>
 </html>
